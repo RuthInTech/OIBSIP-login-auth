@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Register</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Register</h2>
+
+        <input type="text" id="username" placeholder="Enter username">
+        <input type="password" id="password" placeholder="Enter password">
+
+        <button onclick="register()">Register</button>
+
+        <p id="messages"></p>
+
+        <a href="index.html">Already have an account? Login</a>
+    </div>
+
+    <script>
+        function register() {
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+
+            if (username === "" || password === "") {
+                document.getElementById("message").innerText = "Please fill all the fields";
+                return;
+            }
+            let user = {
+                username: username,
+                password: password
+            };
+            localStorage.setItem("user", JSON.stringify(user));
+            document.getElementById("messages").innerText = "Registration Successfull!!!"
+        }
+    </script>
+
+</body>
+
+</html>
